@@ -725,7 +725,145 @@ minetest.register_node ("lwscratch:robot_on", {
 	on_rightclick = on_rightclick,
 })
 
+--test
 
+minetest.register_node ("lwscratch:red_robot", {
+	description = S("Red Robot"),
+	tiles = { "lw_itch_top.png", "lw_itch_bottom.png", "lw_itch_left.png",
+				  "lw_itch_right.png", "lw_itch_back.png", "lw_itch_face.png" },
+	drawtype = "nodebox",
+	 node_box = {
+		 type = "fixed",
+		 fixed = {
+			  -- left_foot
+			 { -0.3125, -0.5, -0.3125, -0.0625, -0.375, 0.3125 },
+			 -- right_foot
+			 { 0.0625, -0.5, -0.3125, 0.3125, -0.375, 0.3125 },
+			 -- left_leg
+			 { -0.25, -0.375, 0, -0.125, -0.3125, 0.125 },
+			 -- right_left
+			 { 0.125, -0.375, 0, 0.25, -0.3125, 0.125 },
+			 -- body
+			 { -0.375, -0.3125, -0.375, 0.375, 0.1875, 0.375 },
+			 -- upper_arm
+			 { -0.5, -0.1875, -0.0625, 0.5, 0.1875, 0.125 },
+			 -- lower_arm
+			 { -0.5, -0.1875, -0.25, 0.5, 0, 0.125 },
+			 -- neck
+			 { -0.125, 0.1875, -0.0625, 0.125, 0.25, 0.1875 },
+			 -- head
+			 { -0.3125, 0.25, -0.3125, 0.3125, 0.5, 0.3125 },
+		 }
+	 },
+	selection_box = {
+	   type = "fixed",
+	   fixed = { -0.5, -0.5, -0.375, 0.5, 0.5, 0.375 }
+	},
+	collision_box = {
+	   type = "fixed",
+	   fixed = { -0.5, -0.5, -0.375, 0.5, 0.5, 0.375 }
+	},
+	 groups = { cracky = 2, oddly_breakable_by_hand = 2 },
+	 sounds = {
+		 footstep = { name = "lwscratch_footstep", gain = 0.3 },
+		 dug = { name = "lwscratch_dug", gain = 1.0 },
+		 place = { name = "lwscratch_place", gain = 1.0 }
+	 },
+	 light_source = 14,
+	 paramtype = "light",
+	 param1 = 0,
+	 paramtype2 = "facedir",
+	 param2 = 1,
+	sunlight_propagates = true,
+	 drop = "lwscratch:red_robot",
+ 
+	on_construct = on_construct,
+	on_destruct = on_destruct,
+	 on_receive_fields = on_receive_fields,
+	 preserve_metadata = preserve_metadata,
+	 after_place_node = after_place_node,
+	 on_timer = on_timer,
+	 can_dig = can_dig,
+	 allow_metadata_inventory_move = allow_metadata_inventory_move,
+	 allow_metadata_inventory_put = allow_metadata_inventory_put,
+	 allow_metadata_inventory_take = allow_metadata_inventory_take,
+	 on_metadata_inventory_put = on_metadata_inventory_put,
+	 on_metadata_inventory_take = on_metadata_inventory_take,
+	 on_metadata_inventory_move = on_metadata_inventory_move,
+	 on_punch = on_punch_robot,
+	 on_rightclick = on_rightclick,
+ })
+ 
+ 
+ 
+ minetest.register_node ("lwscratch:red_robot_on", {
+	description = S("Red Robot"),
+	tiles = { "lw_itch_top.png", "lw_itch_bottom.png", "lw_itch_left.png",
+				  "lw_itch_right.png", "lw_itch_back.png", "lw_itch_face_on.png" },
+	drawtype = "nodebox",
+	 node_box = {
+		 type = "fixed",
+		 fixed = {
+			  -- left_foot
+			 { -0.3125, -0.5, -0.3125, -0.0625, -0.375, 0.3125 },
+			 -- right_foot
+			 { 0.0625, -0.5, -0.3125, 0.3125, -0.375, 0.3125 },
+			 -- left_leg
+			 { -0.25, -0.375, 0, -0.125, -0.3125, 0.125 },
+			 -- right_left
+			 { 0.125, -0.375, 0, 0.25, -0.3125, 0.125 },
+			 -- body
+			 { -0.375, -0.3125, -0.375, 0.375, 0.1875, 0.375 },
+			 -- upper_arm
+			 { -0.5, -0.1875, -0.0625, 0.5, 0.1875, 0.125 },
+			 -- lower_arm
+			 { -0.5, -0.1875, -0.25, 0.5, 0, 0.125 },
+			 -- neck
+			 { -0.125, 0.1875, -0.0625, 0.125, 0.25, 0.1875 },
+			 -- head
+			 { -0.3125, 0.25, -0.3125, 0.3125, 0.5, 0.3125 },
+		 }
+	 },
+	selection_box = {
+	   type = "fixed",
+	   fixed = { -0.5, -0.5, -0.375, 0.5, 0.5, 0.375 }
+	},
+	collision_box = {
+	   type = "fixed",
+	   fixed = { -0.5, -0.5, -0.375, 0.5, 0.5, 0.375 }
+	},
+	 groups = { cracky = 2, oddly_breakable_by_hand = 2, not_in_creative_inventory = 1 },
+	 sounds = {
+		 footstep = { name = "lwscratch_footstep", gain = 0.3 },
+		 dug = { name = "lwscratch_dug", gain = 1.0 },
+		 place = { name = "lwscratch_place", gain = 1.0 }
+	 },
+	 light_source = 14,
+	 paramtype = "light",
+	 param1 = 0,
+	 paramtype2 = "facedir",
+	 param2 = 1,
+	sunlight_propagates = true,
+	 drop = "lwscratch:red_robot",
+ 
+	on_construct = on_construct,
+	on_destruct = on_destruct,
+	 on_receive_fields = on_receive_fields,
+	 preserve_metadata = preserve_metadata,
+	 after_place_node = after_place_node,
+	 on_timer = on_timer,
+	 can_dig = can_dig,
+	 allow_metadata_inventory_move = allow_metadata_inventory_move,
+	 allow_metadata_inventory_put = allow_metadata_inventory_put,
+	 allow_metadata_inventory_take = allow_metadata_inventory_take,
+	 on_metadata_inventory_put = on_metadata_inventory_put,
+	 on_metadata_inventory_take = on_metadata_inventory_take,
+	 on_metadata_inventory_move = on_metadata_inventory_move,
+	 on_punch = on_punch_robot,
+	 on_rightclick = on_rightclick,
+ })
+ 
+ 
 
 -- custom robot
 minetest.register_node ("lwscratch:red_robot", {
