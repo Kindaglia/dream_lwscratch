@@ -594,9 +594,12 @@ function utils.robot_stop(pos)
 				node.name = "lwscratch:red_robot"
 			elseif type_robot == "lwscratch:robot" then
 				node.name = "lwscratch:robot"
+			elseif type_robot == "lwscratch:red_robot_light" then
+				node.name = "lwscratch:red_robot_light"
 			end
 			minetest.swap_node(pos, node)
 		end
+		
 
 
 		-- Invia un messaggio in gioco con la posizione
@@ -651,13 +654,16 @@ function utils.robot_run (pos)
 		
 		local type_robot = send_node_in_game(node)
 		if node then
-			if type_robot == "lwscratch:red_robot_on" then
-				node.name = "lwscratch:red_robot_on"
-			elseif type_robot == "lwscratch:robot_on" then
-				node.name = "lwscratch:robot_on"
+			if type_robot == "lwscratch:red_robot" then
+				node.name = "lwscratch:red_robot"
+			elseif type_robot == "lwscratch:robot" then
+				node.name = "lwscratch:robot"
+			elseif type_robot == "lwscratch:red_robot_light" then
+				node.name = "lwscratch:red_robot_light"
 			end
 			minetest.swap_node(pos, node)
 		end
+		
 
 		minetest.get_node_timer (pos):start (utils.settings.running_tick)
 	end
