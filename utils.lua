@@ -650,9 +650,6 @@ function utils.robot_run (pos)
 		local node = minetest.get_node_or_nil (pos)
 		
 		local type_robot = send_node_in_game(node)
-
-		local type_robot = send_node_in_game(node)
-
 		if node then
 			if type_robot == "lwscratch:red_robot" then
 				node.name = "lwscratch:red_robot_on"
