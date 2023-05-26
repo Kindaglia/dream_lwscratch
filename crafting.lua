@@ -13,6 +13,22 @@ minetest.register_craft({
 
 
 minetest.register_craft({
+	output = "lwscratch:red_robot 1",
+	recipe = {
+		{ "lwscratch:robot", "dye:red", "" },
+	}
+})
+
+minetest.register_craft({
+	output = "lwscratch:red_robot_light 1",
+	recipe = {
+		{ "lwscratch:robot", "dye:red", "default:mese_crystal" },
+	}
+})
+
+
+
+minetest.register_craft({
 	output = "lwscratch:cassette 1",
 	recipe = {
 		{ "default:clay_lump", "default:coal_lump" },
