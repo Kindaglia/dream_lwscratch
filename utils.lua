@@ -591,7 +591,7 @@ function utils.robot_stop(pos)
 		
 		if node then
 			if type_robot == "lwscratch:red_robot" then
-				node.name = "lwscratch:red_robot_on"
+				node.name = "lwscratch:red_robot"
 			elseif type_robot == "lwscratch:robot" then
 				node.name = "lwscratch:robot"
 			end
@@ -651,10 +651,10 @@ function utils.robot_run (pos)
 		
 		local type_robot = send_node_in_game(node)
 		if node then
-			if type_robot == "lwscratch:red_robot" then
+			if type_robot == "lwscratch:red_robot_on" then
 				node.name = "lwscratch:red_robot_on"
-			elseif type_robot == "lwscratch:robot" then
-				node.name = "lwscratch:robot"
+			elseif type_robot == "lwscratch:robot_on" then
+				node.name = "lwscratch:robot_on"
 			end
 			minetest.swap_node(pos, node)
 		end
