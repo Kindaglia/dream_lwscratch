@@ -129,7 +129,7 @@ end
 
 
 local function preserve_metadata (pos, oldnode, oldmeta, drops)
-	if #drops > 0 and drops[1]:get_name ():sub (1, 15) == "lwscratch:robot" then
+	if #drops > 0 and (drops[1]:get_name ():sub (1, 30) == "lwscratch:red_robot" or drops[1]:get_name ():sub (1, 30) == "lwscratch:robot" or drops[1]:get_name ():sub (1, 30) == "lwscratch:red_robot_light") then
 		local meta = minetest.get_meta (pos)
 		local id = meta:get_int ("lwscratch_id")
 
