@@ -31,8 +31,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "lwscratch:cassette 1",
 	recipe = {
-		{ "default:clay_lump", "default:coal_lump" },
-		{ "default:stick", "default:book" }
+		{ "default:copper_ingot", "default:copper_ingot", "default:copper_ingot" },
+		{ "default:steel_ingot", "default:tin_ingot", "default:steel_ingot" },
 	}
 })
 
