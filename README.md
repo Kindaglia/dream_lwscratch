@@ -7,3 +7,16 @@ This repository is a fork of the LWScratch project for Minetest, adding some exc
 1. **Custom-colored Robots**: Added new robots with unique and vibrant colors.
 
 2. **Illuminated Robots**: Robots can now light up, creating captivating light effects.
+
+
+## Robot
+
+
+## Red robot: 
+![alt text](img\red_robot.png)
+
+## Red robot with lighting: 
+![alt text](img\red_robot_l.png)
+
+## Default: 
+![alt text](img\screenshot.png)
