@@ -1,5 +1,24 @@
 local utils = ...
 
+--funzione messaggi
+function send_message_in_game(message)
+    local player_names = minetest.get_connected_players()
+
+    for _, player in ipairs(player_names) do
+        minetest.chat_send_player(player:get_player_name(), message)
+    end
+end
+
+function send_node_in_game(node)
+    local message = "Il nodo è di tipo: " .. node.name
+    local player_names = minetest.get_connected_players()
+
+    for _, player in ipairs(player_names) do
+        minetest.chat_send_player(player:get_player_name(), message)
+    end
+
+    return message
+end
 
 
 if minetest.get_translator and minetest.get_translator ("lwscratch") then
@@ -559,24 +578,43 @@ end
 
 
 
-function utils.robot_stop (pos)
-	local meta = minetest.get_meta (pos)
+function utils.robot_stop(pos)
+	local meta = minetest.get_meta(pos)
 
-	if meta and meta:get_int ("lwscratch_id") > 0 then
-		minetest.get_node_timer (pos):stop ()
+	if meta and meta:get_int("lwscratch_id") > 0 then
+		minetest.get_node_timer(pos):stop()
 
-		meta:set_int ("running", 0)
-		meta:set_string ("program", "")
+		meta:set_int("running", 0)
+		meta:set_string("program", "")
 
-		local node = minetest.get_node_or_nil (pos)
+		local node = minetest.get_node_or_nil(pos)
+		
 		if node then
-			node.name = "lwscratch:robot"
-
-			minetest.swap_node (pos, node)
+			if type_robot == "lwscratch:red_robot" then
+				node.name = "lwscratch:red_robot"
+			elseif type_robot == "lwscratch:robot" then
+				node.name = "lwscratch:robot"
+			elseif type_robot == "lwscratch:red_robot_light" then
+				node.name = "lwscratch:red_robot_light"
+			end
+			minetest.swap_node(pos, node)
 		end
+		
+
+
+		-- Invia un messaggio in gioco con la posizione
+		local player_names = minetest.get_connected_players()
+		local message = "Il robot si è fermato alla posizione (" .. pos.x .. ", " .. pos.y .. ", " .. pos.z .. ")."
+		for _, player in ipairs(player_names) do
+			minetest.chat_send_player(player:get_player_name(), message)
+		end
+		send_message_in_game("Ciao a tutti! Benvenuti nel mio mondo!")
 	end
 end
 
+
+
+--funzione messaggi
 
 
 function utils.robot_run (pos)
@@ -611,13 +649,21 @@ function utils.robot_run (pos)
 		program:serialize ()
 
 		meta:set_int ("running", 1)
-
+		
 		local node = minetest.get_node_or_nil (pos)
+		
+		local type_robot = send_node_in_game(node)
 		if node then
-			node.name = "lwscratch:robot_on"
-
-			minetest.swap_node (pos, node)
+			if type_robot == "lwscratch:red_robot" then
+				node.name = "lwscratch:red_robot"
+			elseif type_robot == "lwscratch:robot" then
+				node.name = "lwscratch:robot"
+			elseif type_robot == "lwscratch:red_robot_light" then
+				node.name = "lwscratch:red_robot_light"
+			end
+			minetest.swap_node(pos, node)
 		end
+		
 
 		minetest.get_node_timer (pos):start (utils.settings.running_tick)
 	end
