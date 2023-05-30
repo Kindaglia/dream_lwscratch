@@ -10,14 +10,8 @@ function send_message_in_game(message)
 end
 
 function send_node_in_game(node)
-    local message = "Il nodo è di tipo: " .. node.name
-    local player_names = minetest.get_connected_players()
-
-    for _, player in ipairs(player_names) do
-        minetest.chat_send_player(player:get_player_name(), message)
-    end
-
-    return message
+    local nodeName = node.name
+    return nodeName
 end
 
 
@@ -600,15 +594,6 @@ function utils.robot_stop(pos)
 			minetest.swap_node(pos, node)
 		end
 		
-
-
-		-- Invia un messaggio in gioco con la posizione
-		local player_names = minetest.get_connected_players()
-		local message = "Il robot si è fermato alla posizione (" .. pos.x .. ", " .. pos.y .. ", " .. pos.z .. ")."
-		for _, player in ipairs(player_names) do
-			minetest.chat_send_player(player:get_player_name(), message)
-		end
-		send_message_in_game("Ciao a tutti! Benvenuti nel mio mondo!")
 	end
 end
 
