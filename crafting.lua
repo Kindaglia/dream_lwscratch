@@ -57,8 +57,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "lwscratch:cassette 1",
 	recipe = {
-		{ "mcl_core:clay_lump", "mcl_core:coal_lump" },
-		{ "mcl_core:stick", "mcl_books:book" }
+		{ "mcl_core:gold_ingot", "mcl_core:gold_ingot", "mesecons:redstone" },
+		{ "mcl_core:iron_ingot", "mesecons:redstone", "mcl_core:iron_ingot" },
 	}
 })
 
