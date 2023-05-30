@@ -13,10 +13,8 @@ This repository is a fork of the LWScratch project for Minetest, adding some exc
 
 
 ## Red robot: 
-![alt text](img\red_robot.png)
-
+![alt text](https://github.com/Kindaglia/lwscratch/blob/master/img/red_robot.png)
 ## Red robot with lighting: 
-![alt text](img\red_robot_l.png)
-
+![alt text](https://github.com/Kindaglia/lwscratch/blob/master/img/red_robot_l.png)
 ## Default: 
-![alt text](img\screenshot.png)
+![alt text](https://github.com/Kindaglia/lwscratch/blob/master/img/screenshot.png)
